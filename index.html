@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md. Mohimen Molla - Automation Engineer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden; /* Prevent horizontal scrollbar */
+            scroll-behavior: smooth; /* Smooth scrolling */
+        }
+        header {
+            background: linear-gradient(90deg, #000000, #333333);
+            color: white;
+            text-align: center;
+            padding: 2em 0;
+            animation: gradientBackground 5s infinite linear;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1em;
+        }
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        section {
+            padding: 2em;
+            max-width: 800px;
+            margin: auto;
+            animation: fadeIn 1s ease-in;
+        }
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background-color: #000;
+            color: white;
+        }
+        .card {
+            padding: 1em;
+            margin: 1em 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: left;
+        }
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .expandable {
+            cursor: pointer;
+            user-select: none;
+            position: relative;
+        }
+        .expandable::after {
+            content: '+'; /* FontAwesome icon code for a 'plus' icon */
+            font-family: 'FontAwesome';
+            font-size: 1.2em;
+            float: right;
+            transition: transform 0.3s;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .expandable.active::after {
+            transform: rotate(45deg);
+        }
+        .expandable-content {
+            display: none;
+            padding-top: 10px;
+        }
+        .expandable.active .expandable-content {
+            display: block;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .photo-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            position: relative;
+        }
+        .photo-gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+        }
+        .photo-gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+        }
+        .profile-picture {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        h2 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5em;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #ff6f61; /* Highlighter color matching website color tone */
+        }
+        .quote {
+            font-size: calc(1rem / 1); /* Quote font size 3x smaller than the name */
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: white;
+            background-color: #333;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="img/profile.jpeg" alt="Profile Picture" class="profile-picture" onerror="this.onerror=null;this.src='default-profile-picture.jpg';">
+        <div>
+            <h1>Md. Mohimen Molla</h1>
+            <h2 class="quote"><em>"Striving for excellence through automation and innovation."</em></h2>
+        </div>
+    </header>
+    <nav>
+        <a href="#about">About Me</a>
+        <a href="#work-experience">Work Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#certifications">Certifications</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#photos">Photos</a>
+        <a href="#contact">Contact</a>
+        <a href="#blog">Blog</a>
+    </nav>
+    <section id="about" class="fade-in-section">
+        <h2>About Me</h2>
+        <div class="card">
+            <p>Hello! I am <span class="highlight">Md. Mohimen Molla</span>, an experienced Automation Engineer with a passion for creating efficient and innovative automation solutions. With a background in engineering and a keen eye for detail, I strive to enhance productivity and streamline processes through automation technologies.</p>
+        </div>
+    </section>
+    <section id="work-experience" class="fade-in-section">
+        <h2>Work Experience</h2>
+        <div class="card">
+            <ul>
+                <li><span class="highlight">Automation Engineer, a1qa</span> (Hybrid), Apr 2023 - Present: Developed expertise in <span class="highlight">.NET, SpecFlow, NUnit, GitLab CI/CD</span>, and version control systems like Git. Proficient in Agile methodologies, JIRA, and effective communication practices.</li>
+                <li><span class="highlight">Trainee Test Developer, a1qa</span> (Remote), Nov 2022 - Mar 2023: Acquired foundational knowledge in software testing and gained proficiency in <span class="highlight">JAVA, Cucumber, JUnit, TestNG, Jenkins</span>, and Git. Enhanced English communication skills and adapted to remote work culture.</li>
+                <li><span class="highlight">Teaching Assistant, AIUB</span> (Onsite), Jun 2022 - Aug 2022: Assisted faculty in conducting classroom activities, provided guidance to students in solving programming tasks using <span class="highlight">Java and C#</span>, and facilitated collaborative learning environments.</li>
+            </ul>
+        </div>
+    </section>
+
+<section id="projects" class="fade-in-section">
+    <h2>Projects</h2>
+    <div class="card expandable">
+        <p><span class="highlight">Antivaly:</span> Built an e-commerce web application with 4 group members using WebAPI with .NET framework and MS SQL server, MVC 5, Entity Framework 5, and Angular JS.</p>
+        <div class="expandable-content">
+            <p>• WebAPI with .NET framework and MS SQL server.</p>
+            <p>• MVC 5, Entity Framework 5.</p>
+            <p>• Frontend with Angular JS.</p>
+<a href="https://github.com/Mohi-men/Antivaly" class="button" target="_blank">View Project</a>
+        </div>
+    </div>
+    <div class="card expandable">
+        <p><span class="highlight">NFA to DFA Converter:</span> Developed a program to convert a Nondeterministic Finite Automaton (NFA) to Deterministic Finite Automaton (DFA) using C programming language and procedural approach.</p>
+        <div class="expandable-content">
+            <p>• Built with C programming language.</p>
+            <p>• Procedural approach.</p>
+<a href="https://github.com/Mohi-men/NFA-to-DFA" class="button" target="_blank">View Project</a>
+        </div>
+    </div>
+    <div class="card expandable">
+        <p><span class="highlight">Superstore Management System:</span> Created a superstore management system with 3 group members using Bunifu Framework, WinForms, and SSMS.</p>
+        <div class="expandable-content">
+            <p>• Bunifu Framework for UI.</p>
+            <p>• WinForms for application structure.</p>
+            <p>• SQL Server Management Studio for database.</p>
+	    <a href="https://github.com/Mohi-men/SMS-3-Tier-Application" class="button" target="_blank">View Project</a>
+        </div>
+    </div>
+</section>
+    
+    <section id="certifications" class="fade-in-section">
+        <h2>Certifications</h2>
+        <div class="card">
+            <ul>
+                <li><span class="highlight">NDG Linux Unhatched English 0421b</span></li>
+                <a href="https://drive.google.com/file/d/12qY-xvbI_H2U1Vl2tcXaEK-ghxstS4uI/view" class="button" target="_blank">View Certification</a>
+                <li><span class="highlight">CyberOps Associate</span></li>
+                <a href="https://drive.google.com/file/d/1DXg1H_BewTKCvu2VXg4BVH7AMNI4WKQG/view" class="button" target="_blank">View Certification</a>
+                <a href="https://www.credly.com/badges/1176751c-dfe9-47c0-bb1c-6ceb3edcb99a/public_url" class="button" target="_blank">View Badge</a>
+                <li><span class="highlight">IT Essentials: PC Hardware and Software</span></li>
+                <a href="https://drive.google.com/file/d/1ssc_F4-2kESCtknShye-UE9RdL9rjIxi/view" class="button" target="_blank">View Certification</a>
+            </ul>
+        </div>
+    </section>
+    <section id="education" class="fade-in-section">
+        <h2>Education</h2>
+        <div class="card">
+            <ul>
+                <li><span class="highlight">B.Sc. in Computer Science and Engineering</span>, American International University-Bangladesh (AIUB), 2019-2022</li>
+                <li><span class="highlight">Higher Secondary Certificate</span>, Notre Dame College, Dhaka, 2016-2018</li>
+                <li><span class="highlight">Secondary School Certificate</span>, Sher-E-Bangla Nagar Govt. Boys' High School, Dhaka, 2014-2016</li>
+            </ul>
+        </div>
+    </section>
+    <section id="skills" class="fade-in-section">
+        <h2>Skills</h2>
+        <div class="card">
+            <ul>
+                <li><span class="highlight">.NET Framework</span> (MVC, Web API)</li>
+                <li><span class="highlight">AngularJS</span></li>
+                <li>Programming languages: <span class="highlight">C, C++, C#, JAVA, Python</span></li>
+                <li>Web: <span class="highlight">HTML, CSS, JS, PHP, AJAX</span></li>
+                <li>Familiar with <span class="highlight">Linux, Git, Jira</span></li>
+                <li>Database management: <span class="highlight">MySQL, SSMS</span></li>
+                <li>Experience with <span class="highlight">Selenium, WebDriverIO</span></li>
+                <li>CI/CD tools: <span class="highlight">Jenkins, Docker, GitLab</span></li>
+                <li>Testing: <span class="highlight">NUnit, TestNG, Junit, Allure</span></li>
+                <li>Collaboration tools: <span class="highlight">Slack</span></li>
+            </ul>
+        </div>
+    </section>
+    <section id="photos" class="fade-in-section">
+        <h2>Photos</h2>
+        <div class="photo-gallery">
+<a href="img/photo1.jpg" data-lightbox="gallery"><img src="img/photo1.jpg" alt="Photo 1"></a>
+            <a href="img/photo2.jpg" data-lightbox="gallery"><img src="img/photo2.jpg" alt="Photo 2"></a>
+            <a href="img/photo3.jpeg" data-lightbox="gallery"><img src="img/photo3.jpeg" alt="Photo 3"></a>
+            <a href="img/photo4.jpg" data-lightbox="gallery"><img src="img/photo4.jpg" alt="Photo 4"></a>
+            <a href="img/photo5.jpg" data-lightbox="gallery"><img src="img/photo5.jpg" alt="Photo 5"></a>
+          
+
+        </div>
+    </section>
+    <section id="contact" class="fade-in-section">
+        <h2>Contact</h2>
+        <div class="card">
+
+            <p><span class="highlight">Email:</span> <a href="mailto:mohimen.cs@gmail.com">mohimen.cs@gmail.com</a></p>
+            <p><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/mohiiimen/" class="button" target="_blank">Connect on LinkedIn</a></p>
+<p><span class="highlight">GitHub:</span> <a href="https://github.com/Mohi-men" class="button" target="_blank">Follow on GitHub</a></p>
+            <p><span class="highlight">Phone:</span> +8801629522969</p>
+        </div>
+    </section>
+    <section id="blog" class="fade-in-section">
+        <h2>Blog</h2>
+        <div class="card">
+            <p>Visit my blog for insights on automation, engineering, and technology trends.</p>
+            <a href="https://blog.example.com" class="button" target="_blank">Visit Blog</a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Md. Mohimen Molla. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const expandables = document.querySelectorAll('.expandable');
+            expandables.forEach(expandable => {
+                expandable.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                });
+            });
+        });
+
+        const faders = document.querySelectorAll('.fade-in-section');
+        const appearOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
+</body>
+</html>
