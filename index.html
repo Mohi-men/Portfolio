@@ -24,6 +24,7 @@
             padding: 2em 0;
             animation: gradientBackground 5s infinite linear;
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
             gap: 1em;
@@ -35,6 +36,7 @@
         }
         nav {
             display: flex;
+            flex-wrap: wrap;
             justify-content: center;
             background-color: #000;
             position: sticky;
@@ -168,6 +170,96 @@
         .button:hover {
             background-color: #555;
         }
+        @media (min-width: 600px) {
+            header {
+                flex-direction: row;
+            }
+            nav a {
+                padding: 14px 10px;
+            }
+        }
+.contact-details {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+    .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 16px;
+    }
+    .contact-item i {
+        font-size: 1.5em;
+        color: #333;
+    }
+    .contact-item .button {
+        flex: 1;
+    }
+    @media (min-width: 600px) {
+        .contact-details {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .contact-item {
+            flex: 1 1 200px;
+        }
+    }
+.mobile-menu-icon {
+    display: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 14px 20px;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: #000;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+}
+
+@media (max-width: 600px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .mobile-menu-icon {
+        display: block;
+    }
+}
+/* Add this CSS for the corner profile picture */
+.corner-profile-picture {
+    display: none;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+}
+
+/* Media query for small screens */
+@media (max-width: 600px) {
+    .corner-profile-picture {
+        top: 10px; /* Adjusted for mobile layout */
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -178,7 +270,12 @@
             <h2 class="quote"><em>"Striving for excellence through automation and innovation."</em></h2>
         </div>
     </header>
+
+
     <nav>
+<img src="img/profile.jpeg" alt="Profile Picture" class="corner-profile-picture" onerror="this.onerror=null;this.src='default-profile-picture.jpg';">
+    <i class="fas fa-bars mobile-menu-icon"></i>
+    <div class="nav-links">
         <a href="#about">About Me</a>
         <a href="#work-experience">Work Experience</a>
         <a href="#projects">Projects</a>
@@ -188,7 +285,8 @@
         <a href="#photos">Photos</a>
         <a href="#contact">Contact</a>
         <a href="#blog">Blog</a>
-    </nav>
+    </div>
+   </nav>
     <section id="about" class="fade-in-section">
         <h2>About Me</h2>
         <div class="card">
@@ -205,8 +303,7 @@
             </ul>
         </div>
     </section>
-
-<section id="projects" class="fade-in-section">
+ <section id="projects" class="fade-in-section">
     <h2>Projects</h2>
     <div class="card expandable">
         <p><span class="highlight">Antivaly:</span> Built an e-commerce web application with 4 group members using WebAPI with .NET framework and MS SQL server, MVC 5, Entity Framework 5, and Angular JS.</p>
@@ -235,8 +332,7 @@
         </div>
     </div>
 </section>
-    
-    <section id="certifications" class="fade-in-section">
+     <section id="certifications" class="fade-in-section">
         <h2>Certifications</h2>
         <div class="card">
             <ul>
@@ -254,9 +350,9 @@
         <h2>Education</h2>
         <div class="card">
             <ul>
-                <li><span class="highlight">B.Sc. in Computer Science and Engineering</span>, American International University-Bangladesh (AIUB), 2019-2022</li>
-                <li><span class="highlight">Higher Secondary Certificate</span>, Shahid Ramiz Uddin Cantonment College, Dhaka, 2016-2018</li>
-                <li><span class="highlight">Secondary School Certificate</span>, Kurmitola High School & College, Dhaka, 2014-2016</li>
+                <li><span class="highlight">Bachelor of Science in Computer Science</span> - American International University-Bangladesh (AIUB)</li>
+                <li><span class="highlight">Higher Secondary Certificate (HSC)</span> - Notre Dame College, Dhaka</li>
+                <li><span class="highlight">Secondary School Certificate (SSC)</span> - Ideal School and College, Dhaka</li>
             </ul>
         </div>
     </section>
@@ -264,16 +360,10 @@
         <h2>Skills</h2>
         <div class="card">
             <ul>
-                <li><span class="highlight">.NET Framework</span> (MVC, Web API)</li>
-                <li><span class="highlight">AngularJS</span></li>
-                <li>Programming languages: <span class="highlight">C, C++, C#, JAVA, Python</span></li>
-                <li>Web: <span class="highlight">HTML, CSS, JS, PHP, AJAX</span></li>
-                <li>Familiar with <span class="highlight">Linux, Git, Jira</span></li>
-                <li>Database management: <span class="highlight">MySQL, SSMS</span></li>
-                <li>Experience with <span class="highlight">Selenium, WebDriverIO</span></li>
-                <li>CI/CD tools: <span class="highlight">Jenkins, Docker, GitLab</span></li>
-                <li>Testing: <span class="highlight">NUnit, TestNG, Junit, Allure</span></li>
-                <li>Collaboration tools: <span class="highlight">Slack</span></li>
+                <li><span class="highlight">Programming Languages:</span> JAVA, C#, Python</li>
+                <li><span class="highlight">Frameworks & Tools:</span> SpecFlow, NUnit, Cucumber, JUnit, TestNG, Jenkins, GitLab CI/CD</li>
+                <li><span class="highlight">Methodologies:</span> Agile, Scrum, Kanban</li>
+                <li><span class="highlight">Soft Skills:</span> Effective Communication, Team Collaboration, Problem-Solving</li>
             </ul>
         </div>
     </section>
@@ -285,58 +375,96 @@
             <a href="img/photo3.jpeg" data-lightbox="gallery"><img src="img/photo3.jpeg" alt="Photo 3"></a>
             <a href="img/photo4.jpg" data-lightbox="gallery"><img src="img/photo4.jpg" alt="Photo 4"></a>
             <a href="img/photo5.jpg" data-lightbox="gallery"><img src="img/photo5.jpg" alt="Photo 5"></a>
-          
-
         </div>
     </section>
-    <section id="contact" class="fade-in-section">
-        <h2>Contact</h2>
-        <div class="card">
 
-            <p><span class="highlight">Email:</span> <a href="mailto:mohimen.cs@gmail.com">mohimen.cs@gmail.com</a></p>
-            <p><span class="highlight">LinkedIn:</span> <a href="https://www.linkedin.com/in/mohiiimen/" class="button" target="_blank">Connect on LinkedIn</a></p>
-<p><span class="highlight">GitHub:</span> <a href="https://github.com/Mohi-men" class="button" target="_blank">Follow on GitHub</a></p>
-            <p><span class="highlight">Phone:</span> +8801629522969</p>
+<section id="contact" class="fade-in-section">
+    <h2>Contact</h2>
+    <div class="card">
+        <p>If you have any questions or would like to get in touch, feel free to contact me:</p>
+        <div class="contact-details">
+            <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <a href="mailto:mohimen.molla@example.com" class="button">Send Email</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-linkedin"></i>
+                <a href="https://www.linkedin.com/in/mohiiimen/" class="button" target="_blank">Connect on LinkedIn</a>
+            </div>
+            <div class="contact-item">
+                <i class="fab fa-github"></i>
+                <a href="https://github.com/Mohi-men" class="button" target="_blank">Follow on GitHub</a>
+            </div>
+            <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span class="highlight">Phone:</span> +8801629522969
+            </div>
         </div>
-    </section>
+    </div>
+</section>
+
+   
     <section id="blog" class="fade-in-section">
         <h2>Blog</h2>
         <div class="card">
-            <p>Visit my blog for insights on automation, engineering, and technology trends.</p>
-            <a href="https://blog.example.com" class="button" target="_blank">Visit Blog</a>
+            <p>Check out my latest blog posts and articles on automation, software testing, and technology trends:</p>
+            <a href="blog.html" class="button">Read Blog</a>
         </div>
     </section>
     <footer>
-        <p>&copy; 2023 Md. Mohimen Molla. All rights reserved.</p>
+        <p>&copy; 2024 MD. MOHIMEN MOLLA. All Rights Reserved.</p>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const expandables = document.querySelectorAll('.expandable');
-            expandables.forEach(expandable => {
-                expandable.addEventListener('click', function () {
-                    this.classList.toggle('active');
-                });
-            });
+    const faders = document.querySelectorAll('.fade-in-section');
+    const options = { threshold: 0.5 };
+    const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('is-visible');
+            appearOnScroll.unobserve(entry.target);
         });
+    }, options);
+    faders.forEach(fader => {
+        appearOnScroll.observe(fader);
+    });
 
-        const faders = document.querySelectorAll('.fade-in-section');
-        const appearOptions = {
-            threshold: 0.5,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        const appearOnScroll = new IntersectionObserver(function (entries, appearOnScroll) {
-            entries.forEach(entry => {
-                if (!entry.isIntersecting) {
-                    return;
-                } else {
-                    entry.target.classList.add('is-visible');
-                    appearOnScroll.unobserve(entry.target);
-                }
-            });
-        }, appearOptions);
-        faders.forEach(fader => {
-            appearOnScroll.observe(fader);
+    const expandableHeaders = document.querySelectorAll('.expandable');
+    expandableHeaders.forEach(header => {
+        header.addEventListener('click', function () {
+            this.classList.toggle('active');
         });
+    });
+
+    const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
+    const navLinks = document.querySelector('.nav-links');
+    const navLinkItems = document.querySelectorAll('.nav-links a');
+    const headerImage = document.querySelector('.profile-picture');
+    const cornerImage = document.querySelector('.corner-profile-picture');
+
+    mobileMenuIcon.addEventListener('click', function () {
+        navLinks.classList.toggle('active');
+    });
+
+    navLinkItems.forEach(link => {
+        link.addEventListener('click', function () {
+            navLinks.classList.remove('active');
+        });
+    });
+
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > headerImage.clientHeight) {
+            cornerImage.style.display = 'block';
+        } else {
+            cornerImage.style.display = 'none';
+        }
+    });
+
+    cornerImage.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
+
     </script>
 </body>
 </html>
