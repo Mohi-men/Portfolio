@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - MD. MOHIMEN MOLLA</title>
-    <link type="image/png" sizes="16x16" rel="icon" href="./img/web-icon.png">
+    <link type="image/png" rel="icon" href="./img/web-icon.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
+         body {
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
@@ -350,9 +350,9 @@
         <h2>Education</h2>
         <div class="card">
             <ul>
-                <li><span class="highlight">Bachelor of Science in Computer Science</span> - American International University-Bangladesh (AIUB)</li>
-                <li><span class="highlight">Higher Secondary Certificate (HSC)</span> - Notre Dame College, Dhaka</li>
-                <li><span class="highlight">Secondary School Certificate (SSC)</span> - Ideal School and College, Dhaka</li>
+                <li><span class="highlight">B.Sc. in Computer Science and Engineering</span>, American International University-Bangladesh (AIUB), 2019-2022</li>
+                <li><span class="highlight">Higher Secondary Certificate</span>, Shahid Ramiz Uddin Cantonment College, Dhaka, 2016-2018</li>
+                <li><span class="highlight">Secondary School Certificate</span>, Kurmitola High School & College, Dhaka, 2014-2016</li>
             </ul>
         </div>
     </section>
@@ -360,10 +360,16 @@
         <h2>Skills</h2>
         <div class="card">
             <ul>
-                <li><span class="highlight">Programming Languages:</span> JAVA, C#, Python</li>
-                <li><span class="highlight">Frameworks & Tools:</span> SpecFlow, NUnit, Cucumber, JUnit, TestNG, Jenkins, GitLab CI/CD</li>
-                <li><span class="highlight">Methodologies:</span> Agile, Scrum, Kanban</li>
-                <li><span class="highlight">Soft Skills:</span> Effective Communication, Team Collaboration, Problem-Solving</li>
+                <li><span class="highlight">.NET Framework</span> (MVC, Web API)</li>
+                <li><span class="highlight">AngularJS</span></li>
+                <li>Programming languages: <span class="highlight">C, C++, C#, JAVA, Python</span></li>
+                <li>Web: <span class="highlight">HTML, CSS, JS, PHP, AJAX</span></li>
+                <li>Familiar with <span class="highlight">Linux, Git, Jira</span></li>
+                <li>Database management: <span class="highlight">MySQL, SSMS</span></li>
+                <li>Experience with <span class="highlight">Selenium, WebDriverIO</span></li>
+                <li>CI/CD tools: <span class="highlight">Jenkins, Docker, GitLab</span></li>
+                <li>Testing: <span class="highlight">NUnit, TestNG, Junit, Allure</span></li>
+                <li>Collaboration tools: <span class="highlight">Slack</span></li>
             </ul>
         </div>
     </section>
@@ -384,10 +390,6 @@
         <p>If you have any questions or would like to get in touch, feel free to contact me:</p>
         <div class="contact-details">
             <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <a href="mailto:mohimen.molla@example.com" class="button">Send Email</a>
-            </div>
-            <div class="contact-item">
                 <i class="fab fa-linkedin"></i>
                 <a href="https://www.linkedin.com/in/mohiiimen/" class="button" target="_blank">Connect on LinkedIn</a>
             </div>
@@ -397,8 +399,13 @@
             </div>
             <div class="contact-item">
                 <i class="fas fa-phone"></i>
-                <span class="highlight">Phone:</span> +8801629522969
+                <span class="highlight"> +8801629522969</span>
             </div>
+<div class="contact-item email-item">
+            <i class="fas fa-envelope"></i>
+            <span class="highlight" id="email-address">mohimen.cs@gmail.com</span>
+
+        </div>
         </div>
     </div>
 </section>
@@ -408,7 +415,7 @@
         <h2>Blog</h2>
         <div class="card">
             <p>Check out my latest blog posts and articles on automation, software testing, and technology trends:</p>
-            <a href="blog.html" class="button">Read Blog</a>
+            <a href="#" class="button">Read Blog</a>
         </div>
     </section>
     <footer>
@@ -435,6 +442,22 @@
             this.classList.toggle('active');
         });
     });
+
+    // JavaScript for smooth scrolling
+document.querySelectorAll('nav a').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetElement = document.querySelector(this.getAttribute('href'));
+        const headerOffset = document.querySelector('nav').offsetHeight;
+        const elementPosition = targetElement.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: 'smooth'
+        });
+    });
+});
 
     const mobileMenuIcon = document.querySelector('.mobile-menu-icon');
     const navLinks = document.querySelector('.nav-links');
@@ -463,6 +486,8 @@
     cornerImage.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+
 });
 
     </script>
